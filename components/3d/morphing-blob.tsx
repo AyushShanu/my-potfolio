@@ -114,7 +114,9 @@ export function MorphingBlob({
         if (meshRef.current) {
             const geometry = meshRef.current.geometry
             const positionAttribute = geometry.getAttribute("position")
-            originalPositions.current = new Float32Array(positionAttribute.array.slice())
+            if (positionAttribute.array instanceof Float32Array) {
+                originalPositions.current = positionAttribute.array.slice()
+            }
         }
     }, [])
 
