@@ -113,14 +113,21 @@ export function MorphingBlob({
   })
 
   useEffect(() => {
-    if (meshRef.current) {
-      const geometry = meshRef.current.geometry
-      const positionAttr = geometry.getAttribute("position") as BufferAttribute
-      if (positionAttr.array instanceof Float32Array) {
-        originalPositions.current = positionAttr.array.slice()
-      }
+  if (meshRef.current) {
+    const geometry = meshRef.current.geometry
+    const positionAttr = geometry.getAttribute("position") as BufferAttribute
+    const array = positionAttr.array
+
+    if (array instanceof Float32Array) {
+      // ✅ Safe to slice
+      originalPositions.current = array.slice()
+    } else {
+      // ❌ Not Float32Array – log a warning or handle differently
+      console.warn("Position attribute is not a Float32Array")
+      originalPositions.current = null
     }
-  }, [])
+  }
+}, [])
 
   useFrame(({ clock }) => {
     if (!meshRef.current || !originalPositions.current || !simplex.current) return
