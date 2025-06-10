@@ -68,6 +68,7 @@ export function GeometricParticles({
             );
             if (mesh.current) {
                 mesh.current.setMatrixAt(i, matrix);
+                mesh.current.instanceMatrix.needsUpdate = true;
             }
         });
 
