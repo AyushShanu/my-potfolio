@@ -112,22 +112,24 @@ export function MorphingBlob({
         config: { mass: 1, tension: 280, friction: 60 },
     })
 
-  useEffect(() => {
+ useEffect(() => {
   if (meshRef.current) {
     const geometry = meshRef.current.geometry;
     const positionAttr = geometry.getAttribute("position");
 
     const array = positionAttr.array;
 
-    // ✅ Option 1: Safe type check
+    // ✅ Option 2: TypeScript cast (forceful but safe due to instanceof)
     if (array instanceof Float32Array) {
-      originalPositions.current = array.slice();
+      const cloned = array.slice();
+      originalPositions.current = cloned as Float32Array;
     } else {
       console.warn("Position attribute array is not Float32Array");
       originalPositions.current = null;
     }
   }
 }, []);
+
     useFrame(({ clock }) => {
         if (!meshRef.current || !originalPositions.current || !simplex.current) return
 
