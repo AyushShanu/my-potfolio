@@ -53,7 +53,8 @@ export function GeometricParticles({
 
     // Animation
     useFrame(() => {
-        if (!mesh.current) return;
+        const instance = mesh.current;
+        if (!instance) return;
 
         particles.forEach((particle, i) => {
             particle.rotation.x += particle.rotationSpeed.x;
@@ -66,13 +67,11 @@ export function GeometricParticles({
                 new THREE.Quaternion().setFromEuler(particle.rotation),
                 new THREE.Vector3(particle.scale, particle.scale, particle.scale)
             );
-            if (mesh.current) {
-                mesh.current.setMatrixAt(i, matrix);
-                mesh.current.instanceMatrix.needsUpdate = true;
-            }
+
+            instance.setMatrixAt(i, matrix);
         });
 
-        mesh.current.instanceMatrix.needsUpdate = true;
+        instance.instanceMatrix.needsUpdate = true;
     });
 
     const particleColor = theme === "dark" ? "#6366f1" : "#8b5cf6";

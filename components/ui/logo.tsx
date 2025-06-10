@@ -15,7 +15,7 @@ export function Logo() {
         <Terminal size={18} />
       </motion.div>
       <span className="font-medium text-lg">
-        <span className="text-gradient-purple">Dev</span>Portfolio
+        <span className="text-gradient-purple">Ayush</span>Portfolio
       </span>
     </Link>
   );
