@@ -7,8 +7,30 @@ import { Progress } from "../ui/progress";
 import { CanvasContainer } from "../3d/canvas-container";
 import { GeometricParticles } from "../3d/geometric-particles";
 
+// Types
+type Skill = {
+  name: string;
+  level: number;
+};
+
+type SkillCategoryType = {
+  name: string;
+  skills: Skill[];
+};
+
+type SkillCategoryProps = {
+  category: SkillCategoryType;
+  index: number;
+};
+
+type SkillItemProps = {
+  skill: Skill;
+  index: number;
+  categoryIndex: number;
+};
+
 // Skill categories
-const skillCategories = [
+const skillCategories: SkillCategoryType[] = [
   {
     name: "Frontend Development",
     skills: [
@@ -18,13 +40,12 @@ const skillCategories = [
       { name: "CSS / Tailwind", level: 80 },
     ],
   },
-
   {
     name: "Design",
     skills: [
       { name: "UI/UX Design", level: 60 },
       { name: "Design Systems", level: 60 },
-      { name: "Figma", level:50 },
+      { name: "Figma", level: 50 },
       { name: "Visual Design", level: 50 },
     ],
   },
@@ -37,7 +58,7 @@ const skillCategories = [
       { name: "Developer Tools", level: 70 },
     ],
   },
- {
+  {
     name: "Git & Version Control",
     skills: [
       { name: "Version Control", level: 60 },
@@ -77,8 +98,9 @@ export function SkillsSection() {
             My <span className="text-gradient-purple">Skills</span> & Expertise
           </h2>
           <p className="text-lg text-muted-foreground">
-            I blend technical expertise with creative problem-solving to deliver standout digital experiences.
-            My skills span development, design, and emerging technologies.
+            I blend technical expertise with creative problem-solving to deliver
+            standout digital experiences. My skills span development, design,
+            and emerging technologies.
           </p>
         </motion.div>
 
@@ -99,7 +121,7 @@ export function SkillsSection() {
   );
 }
 
-function SkillCategory({ category, index }) {
+function SkillCategory({ category, index }: SkillCategoryProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -126,13 +148,16 @@ function SkillCategory({ category, index }) {
   );
 }
 
-function SkillItem({ skill, index, categoryIndex }) {
+function SkillItem({ skill, index, categoryIndex }: SkillItemProps) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.1) }}
+      transition={{
+        duration: 0.3,
+        delay: categoryIndex * 0.1 + index * 0.1,
+      }}
       className="space-y-2"
     >
       <div className="flex justify-between">

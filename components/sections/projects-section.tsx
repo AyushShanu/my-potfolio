@@ -16,13 +16,26 @@ import { Badge } from "../ui/badge";
 import Image from "next/image";
 import Link from "next/link";
 
-// Project data
-const projects = [
+// ✅ 1. Define the Project type
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  demoUrl: string;
+  repoUrl: string;
+};
+
+// ✅ 2. Annotate the projects array
+const projects: Project[] = [
   {
     id: 1,
     title: "Netflix Landing Page",
-    description:"A visually stunning, responsive clone of Netflix’s landing page built to showcase modern frontend development skills. This project replicates the look and feel of Netflix’s homepage with precise layout structure, smooth transitions, hover effects, and mobile responsiveness",
-    image:"https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description:
+      "A visually stunning, responsive clone of Netflix’s landing page built to showcase modern frontend development skills. This project replicates the look and feel of Netflix’s homepage with precise layout structure, smooth transitions, hover effects, and mobile responsiveness",
+    image:
+      "https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["HTML", "CSS"],
     demoUrl: "#",
     repoUrl: "https://github.com/AyushShanu/netflix-landing-page",
@@ -30,8 +43,10 @@ const projects = [
   {
     id: 2,
     title: "OpenDriveX",
-    description:"A backend drive system that mimics basic cloud storage functionality — users can upload, manage, and access files through a robust Express and MongoDB setup",
-    image:"https://images.pexels.com/photos/7567458/pexels-photo-7567458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description:
+      "A backend drive system that mimics basic cloud storage functionality — users can upload, manage, and access files through a robust Express and MongoDB setup",
+    image:
+      "https://images.pexels.com/photos/7567458/pexels-photo-7567458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Node.js", "Express", "MongooDB", "Cloudinary"],
     demoUrl: "#",
     repoUrl: "https://github.com/AyushShanu/drive-project",
@@ -50,7 +65,8 @@ const projects = [
   {
     id: 4,
     title: "My Portfolio",
-    description: "Web-based narrative experience with parallax effects and 3D elements",
+    description:
+      "Web-based narrative experience with parallax effects and 3D elements",
     image:
       "https://images.pexels.com/photos/4050470/pexels-photo-4050470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["GSAP", "Lenis", "Three.js", "HTML Canvas"],
@@ -84,8 +100,8 @@ export function ProjectsSection() {
             Featured <span className="text-gradient-green">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            A selection of my work that showcases my skills in interactive development,
-            3D web experiences, and creative design solutions.
+            A selection of my work that showcases my skills in interactive
+            development, 3D web experiences, and creative design solutions.
           </p>
         </motion.div>
 
@@ -102,7 +118,14 @@ export function ProjectsSection() {
   );
 }
 
-function ProjectCard({ project, index }) {
+// ✅ 3. Add type annotation to the ProjectCard props
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -134,7 +157,11 @@ function ProjectCard({ project, index }) {
         </CardContent>
         <CardFooter className="flex justify-between">
           {project.repoUrl && project.repoUrl !== "#" ? (
-            <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button size="sm" variant="outline">
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
@@ -148,7 +175,11 @@ function ProjectCard({ project, index }) {
           )}
 
           {project.demoUrl && project.demoUrl !== "#" ? (
-            <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button size="sm">
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Demo

@@ -46,7 +46,6 @@ export function ContactSection() {
   setIsSubmitting(true);
 
   const promise = async () => {
-    // 1. Save to Supabase
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -55,7 +54,6 @@ export function ContactSection() {
 
     if (!res.ok) throw new Error("Database insert failed");
 
-    // 2. Send Email Notification
     const emailRes = await fetch("/api/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -71,23 +69,14 @@ export function ContactSection() {
     loading: "Sending your message...",
     success: () => {
       form.reset();
-      return {
-        description: "I'll get back to you shortly. 🚀",
-        message: "Message sent successfully!",
-      };
+      return "Message sent successfully! 🚀";
     },
-    error: (err: Error) => ({
-      description: err.message || "Something went wrong. Please try again later.",
-      message: "Failed to send message ❌",
-    }),
+    error: (err: Error) =>
+      err.message || "Something went wrong. Please try again later.",
   });
 
   setIsSubmitting(false);
 }
-
-  
-  
-
   return (
     <section id="contact" ref={containerRef} className="relative section-padding bg-muted/50">
       <div className="container mx-auto px-4">
