@@ -56,7 +56,7 @@ export function AboutSection() {
               </p>
               
               <p>
-              I always love pushing creative boundaries—from clean UIs to dynamic 3D visuals. I love mixing design sense with new-age tech like AI to craft experiences that not only work well but feel unique. For me, it’s all about creating something that stands out and makes people say " this feels different."
+              I always love pushing creative boundaries—from clean UIs to dynamic 3D visuals. I love mixing design sense with new-age tech like AI to craft experiences that not only work well but feel unique. For me, it’s all about creating something that stands out and makes people say this feels different.
               </p>
               
               <p>
