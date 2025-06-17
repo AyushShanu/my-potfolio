@@ -19,7 +19,7 @@ export function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   const handleScroll = () => {
-    const aboutSection = document.getElementById("about");
+    const aboutSection = document.getElementById("project");
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
