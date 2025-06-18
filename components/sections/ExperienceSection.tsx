@@ -6,27 +6,21 @@ import { cn } from "@/lib/utils";
 
 const experiences = [
   {
-    company: "Freelance Projects",
-    role: "Frontend Developer",
-    duration: "2023 - Present",
+    company: "Bizyou Technologies",
+    role: "Frontend Developer Intern",
+    duration: "September 2024 - March 2025",
     description:
-      "Developed responsive, animated, and 3D websites using React, Next.js, and Three.js. Collaborated with clients to deliver tailored UI/UX solutions and optimize performance.",
+      "Contributed to the development of a dynamic LMS platform using Next.js and TailwindCSS, enhancing user experience through responsive design and interactive features.",
     technologies: [
       "Next.js",
-      "Three.js",
-      "React",
       "TailwindCSS",
-      "Framer Motion",
-      "Supabase",
+      "React",
+      "GitHub",
+      "TypeScript",
+      "AI Tools",
+      "Promting",
+      "Shadcn UI",
     ],
-  },
-  {
-    company: "Creative Studio",
-    role: "UI Developer Intern",
-    duration: "2022 - 2023",
-    description:
-      "Worked on modern user interfaces with smooth transitions and interactive animations. Improved usability across platforms by designing scalable components.",
-    technologies: ["Figma", "TypeScript", "Styled Components", "Zustand"],
   },
 ];
 
@@ -41,7 +35,8 @@ const globalSkills = [
   "Tailwind",
   "Supabase",
   "Git",
-  "Figma",
+  "Node.js",
+  "AI Tools"
 ];
 
 export default function ExperienceSection() {

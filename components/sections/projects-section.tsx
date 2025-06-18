@@ -34,8 +34,7 @@ const projects: Project[] = [
     title: "Netflix Landing Page",
     description:
       "A visually stunning, responsive clone of Netflix’s landing page built to showcase modern frontend development skills. This project replicates the look and feel of Netflix’s homepage with precise layout structure, smooth transitions, hover effects, and mobile responsiveness",
-    image:
-      "https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "/images/projects/netflix.jpg",
     tags: ["HTML", "CSS"],
     demoUrl: "#",
     repoUrl: "https://github.com/AyushShanu/netflix-landing-page",
@@ -45,8 +44,7 @@ const projects: Project[] = [
     title: "OpenDriveX",
     description:
       "A backend drive system that mimics basic cloud storage functionality — users can upload, manage, and access files through a robust Express and MongoDB setup",
-    image:
-      "https://images.pexels.com/photos/7567458/pexels-photo-7567458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+     image: "/images/projects/onedrive.jpg",
     tags: ["Node.js", "Express", "MongooDB", "Cloudinary"],
     demoUrl: "#",
     repoUrl: "https://github.com/AyushShanu/drive-project",
@@ -56,8 +54,7 @@ const projects: Project[] = [
     title: "Next.js LMS",
     description:
       "Frontend interface for a Learning Management System built with Next.js, including sections for course uploads, dashboard analytics, and user interaction.",
-    image:
-      "https://images.pexels.com/photos/7256811/pexels-photo-7256811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+     image: "/images/projects/lms.jpg",
     tags: ["Shadcn UI", "React", "TypeScript", "Next.js"],
     demoUrl: "#",
     repoUrl: "https://github.com/AyushShanu/LMs",
@@ -67,11 +64,10 @@ const projects: Project[] = [
     title: "My Portfolio",
     description:
       "Web-based narrative experience with parallax effects and 3D elements",
-    image:
-      "https://images.pexels.com/photos/4050470/pexels-photo-4050470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "/images/projects/portfolio.jpg",
     tags: ["GSAP", "Lenis", "Three.js", "HTML Canvas"],
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/AyushShanu/my-potfolio",
   },
 ];
 
