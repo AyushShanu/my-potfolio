@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const experiences = [
   {
-    company: "Bizyou Technologies",
+    company: "Salesine Technologies",
     role: "Frontend Developer Intern",
     duration: "September 2024 - March 2025",
     description:
