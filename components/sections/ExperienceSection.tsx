@@ -1,6 +1,6 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion,useScroll } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -40,8 +40,15 @@ const globalSkills = [
 ];
 
 export default function ExperienceSection() {
-  return (
-    <section className="relative py-24 px-4 md:px-10 lg:px-20 max-w-7xl mx-auto">
+   const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+      target: containerRef,
+      offset: ["start end", "end start"],
+    });
+  
+    return (
+    <section id="experience"
+      ref={containerRef} className="relative py-24 px-4 md:px-10 lg:px-20 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

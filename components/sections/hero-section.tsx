@@ -24,6 +24,12 @@ export function HeroSection() {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const handleButton = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -71,7 +77,7 @@ export function HeroSection() {
             <Button size="lg" onClick={handleScroll}>
               Explore Work
             </Button>
-            <Button size="lg" variant="outline" onClick={handleScroll}>
+            <Button size="lg" variant="outline" onClick={handleButton}>
               Get to Know Me
             </Button>
           </motion.div>
@@ -83,7 +89,7 @@ export function HeroSection() {
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce"
             onClick={handleScroll}
           >
-            <ArrowDownCircle className="text-foreground/70 w-10 h-10" />
+            {/* <ArrowDownCircle className="text-foreground/70 w-10 h-10" /> */}
           </motion.div>
         </motion.div>
       </div>
